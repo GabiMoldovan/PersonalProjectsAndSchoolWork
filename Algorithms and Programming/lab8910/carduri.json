@@ -1,0 +1,82 @@
+{
+  "28246": {
+    "py/object": "Domain.card.CardClient",
+    "idEntitate": 28246,
+    "nume": "eacxu",
+    "prenume": "mvcls",
+    "CNP": 772473385,
+    "dataNasterii": "13.10.1989",
+    "dataInregistrarii": "4.12.2015",
+    "puncte": 1020
+  },
+  "48651": {
+    "py/object": "Domain.card.CardClient",
+    "idEntitate": 48651,
+    "nume": "pzjei",
+    "prenume": "zkjne",
+    "CNP": 167178305,
+    "dataNasterii": "27.10.2013",
+    "dataInregistrarii": "3.12.2006",
+    "puncte": 1013
+  },
+  "53364": {
+    "py/object": "Domain.card.CardClient",
+    "idEntitate": 53364,
+    "nume": "hzagg",
+    "prenume": "adakh",
+    "CNP": 258053832,
+    "dataNasterii": "23.12.2001",
+    "dataInregistrarii": "4.12.2013",
+    "puncte": 1013
+  },
+  "31399": {
+    "py/object": "Domain.card.CardClient",
+    "idEntitate": 31399,
+    "nume": "xafic",
+    "prenume": "abreb",
+    "CNP": 515406587,
+    "dataNasterii": "28.12.1984",
+    "dataInregistrarii": "5.10.2011",
+    "puncte": 1017
+  },
+  "84232": {
+    "py/object": "Domain.card.CardClient",
+    "idEntitate": 84232,
+    "nume": "lbirt",
+    "prenume": "jkvvt",
+    "CNP": 481367491,
+    "dataNasterii": "30.11.2014",
+    "dataInregistrarii": "4.11.2010",
+    "puncte": 1015
+  },
+  "39388": {
+    "py/object": "Domain.card.CardClient",
+    "idEntitate": 39388,
+    "nume": "ohkno",
+    "prenume": "qhrmj",
+    "CNP": 742003135,
+    "dataNasterii": "26.11.1995",
+    "dataInregistrarii": "1.11.2009",
+    "puncte": 1017
+  },
+  "22999": {
+    "py/object": "Domain.card.CardClient",
+    "idEntitate": 22999,
+    "nume": "pijbk",
+    "prenume": "oshmh",
+    "CNP": 962216106,
+    "dataNasterii": "10.11.2016",
+    "dataInregistrarii": "6.12.2003",
+    "puncte": 1005
+  },
+  "1": {
+    "py/object": "Domain.card.CardClient",
+    "idEntitate": "1",
+    "nume": "test",
+    "prenume": "test",
+    "CNP": "435435",
+    "dataNasterii": "11.11.1111",
+    "dataInregistrarii": "1.11.1111",
+    "puncte": "69420"
+  }
+}

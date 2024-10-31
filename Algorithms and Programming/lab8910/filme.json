@@ -1,0 +1,26 @@
+{
+  "2": {
+    "py/object": "Domain.film.Film",
+    "idEntitate": "2",
+    "titlu": "trecem in sesiune",
+    "anAparitie": "2021",
+    "pretBilet": "0",
+    "inProgram": "False"
+  },
+  "3": {
+    "py/object": "Domain.film.Film",
+    "idEntitate": "3",
+    "titlu": "test",
+    "anAparitie": "24363",
+    "pretBilet": "24",
+    "inProgram": "True"
+  },
+  "4": {
+    "py/object": "Domain.film.Film",
+    "idEntitate": "4",
+    "titlu": "1",
+    "anAparitie": "14",
+    "pretBilet": "2",
+    "inProgram": "True"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "2": {
+    "py/object": "Domain.card.CardClient",
+    "idEntitate": "2",
+    "nume": "test",
+    "prenume": "testtest",
+    "CNP": "757357357",
+    "dataNasterii": "22.22.2222",
+    "dataInregistrarii": "4.44.4444",
+    "puncte": 45
+  },
+  "1": {
+    "py/object": "Domain.card.CardClient",
+    "idEntitate": "1",
+    "nume": "petrescu",
+    "prenume": "Andrei",
+    "CNP": "4354537653",
+    "dataNasterii": "11.11.1111",
+    "dataInregistrarii": "2.22.2222",
+    "puncte": 52
+  }
+}
