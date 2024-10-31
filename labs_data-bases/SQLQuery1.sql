@@ -1,0 +1,7 @@
+/*CREATE TABLE FILM(ID int, NAME nvarchar(50), release_date DATE)
+INSERT INTO FILM(ID, NAME, release_date) VALUES (1, 'Titanic', '1998-04-04')*/
+SELECT * FROM FILM
+UPDATE FILM SET NAME = 'Mirciulica' WHERE NAME = 'Titanic'
+SELECT * FROM FILM
+DELETE FROM FILM WHERE NAME = 'Mirciulica'
+SELECT * FROM FILM
