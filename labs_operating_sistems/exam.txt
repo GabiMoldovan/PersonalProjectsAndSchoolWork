@@ -1,0 +1,14 @@
+if [ $# -lt 1 ]; then
+    echo "parametru invalid"
+    exit 1
+fi
+
+filename=$1
+
+if [ -f '$filename.txt' ]; then
+    echo "parametru invalid" 
+    exit 1
+fi
+
+
+awk '{ score = $1 *3 + $2; print score }' "$filename.txt"

@@ -1,0 +1,52 @@
+# Verificam daca s-au dat 2 parametri
+if [[ $# -lt 2 ]]; then
+    echo "parametru invalid"
+    exit 1
+fi
+
+
+# Verificam daca directorul dat este bun
+directory=$1
+if [[ ! -d "$directory" ]]; then
+    echo "Directorul $directory nu exista"
+    exit 1
+fi
+
+
+# Verificam daca al doilea parametru ( numele clientului ) nu este nul
+client=$2
+if [[ -z "$client" ]]; then
+    echo "Numele clientului nu poate sa fie vid"
+    exit 1
+fi
+
+# Verificam daca exista fisierul dat ca al doilea parametru
+if [[ ! -f "$directory/$client.txt" ]]; then
+    echo "parametru invalid"
+    exit 1
+fi
+
+cd "$directory"
+
+# Parcurgem fisierele
+for file in *.txt; do
+    if [[ -f "$file" ]]; then
+        filename=$(basename "$file" .txt)
+        firstline=$(head -n 1 "$file")
+        # Verificam daca fisierul este cel dat ca parametru
+        if [[ "$filename" == "$client" ]]; then
+            secondline=$(grep -oP '^Venit: \K.*' "$file")
+            if ! grep -q '^[0-9]\+$' <<< "$firstline"; then
+                echo "fisier invalid"
+            else
+                { read _; read secondline; } < "$file"
+                if [[ -z "$secondline" ]]; then
+                    echo "fisier invalid"
+                else
+                    echo "$firstline"
+                fi
+            fi
+        fi
+    fi
+done | sort
+

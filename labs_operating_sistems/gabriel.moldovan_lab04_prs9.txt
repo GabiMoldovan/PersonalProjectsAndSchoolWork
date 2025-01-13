@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# Verificam daca s-au dat 2 parametri
+if [[ $# -lt 2 ]]; then
+    echo "parametru invalid"
+    exit 1
+fi
+
+# Verificam daca directorul dat este bun
+directory=$1
+if [[ ! -d "$directory" ]]; then
+    echo "Directorul $directory nu exista"
+    exit 1
+fi
+
+# Verificam daca al doilea parametru ( numele clientului ) nu este nul
+client=$2
+if [[ -z "$client" ]]; then
+    echo "Numele clientului nu poate sa fie vid"
+    exit 1
+fi
+
+# verifica daca primul argument exista si este director
+if [ -d "$1" ]; then
+    # extrage calea absoluta a directorului
+    dir=$(realpath "$1")
+    # verifica daca fisierul clientului exista
+    if [ -f "$dir/$2.txt" ]; then
+        # citeste numarul de pe prima linie a fisierului
+        salariu=$(head -1 "$dir/$2.txt")
+        # verifica daca salariul este in ROL
+        if (( ${#salariu} >= 5 )); then
+            # converteste ROL la RON
+            sed -i '1 s/^/'"$(($salariu / 10000))"'\n/' "$dir/$2.txt"
+        fi
+        # citeste cheltuielile de pe a doua linie a fisierului
+        cheltuieli=$(tail -1 "$dir/$2.txt")
+        # imparte cheltuielile in cuvinte separate
+        read -ra chelt_arr <<< "$cheltuieli"
+        # parcurge fiecare cheltuiala si actualizeaza valoarea
+        for i in "${!chelt_arr[@]}"; do
+            # verifica daca cheltuiala este in ROL
+            if (( ${#chelt_arr[i]} >= 5 )); then
+                # converteste ROL la RON
+                chelt_arr[i]=$(( ${chelt_arr[i]} / 10000 ))
+            fi
+        done
+        # actualizeaza fisierul clientului cu noile valori
+        sed -i "2 s/.*/${chelt_arr[*]}/" "$dir/$2.txt"
+        # sterge a treia linie din fisier
+        sed -i '3d' "$dir/$2.txt"
+    else
+        echo "Fisierul pentru clientul $2 nu exista in directorul $dir"
+        exit 1
+    fi
+else
+    echo "Primul argument trebuie sa fie un director existent"
+    exit 1
+fi
+

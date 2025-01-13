@@ -1,0 +1,27 @@
+if [ $# -lt 2 ]; then
+    echo "parametru invalid" >&2
+    exit 1
+fi
+
+for path in "$@"; do
+    if [ -d "$path" ]; then
+        cd "$path"
+    elif [ -f "$path" ] && [[ "$path" == *.txt ]]; then
+        if awk 'BEGIN { salary = 0; expenses = 0; }
+            NR == 1 { salary = $1; }
+            NR == 2 { expenses = $1; for(i=2;i<=NF;i++) expenses+=$i; }
+            END { print salary - expenses; }' "$path" >> "$PWD/$(basename "$path")"
+        then
+            :
+        else
+            echo "parametru invalid" >&2
+            exit 1
+        fi
+    else
+        echo "parametru invalid" >&2
+        exit 1
+    fi
+done
+
+exit 0
+

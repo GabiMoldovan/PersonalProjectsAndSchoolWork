@@ -1,0 +1,22 @@
+# Verificam daca s-au dat 2 parametri
+if [ $# -lt 2 ]; then
+    echo "parametru invalid"
+    exit 1
+fi
+
+dir_path=$1
+client=$2
+
+file_path="$dir_path/$client.txt"
+
+if [ ! -f $file_path ]; then
+    echo "parametru invalid" >&2
+    exit 1
+fi
+
+awk 'BEGIN { salary = 0; expenses = 0; }
+        NR == 1 { salary = $1; }
+        NR == 2 { expenses = $1; for(i=2;i<=NF;i++) expenses+=$i; }
+        END { print salary - expenses; }' "$file_path"
+
+exit 0
